@@ -16,19 +16,5 @@
 #   public *;
 #}
 
--dontwarn android.support.**
-
-
--keep class org.webrtc.**  { *; }
-
-
-
--keep class org.appspot.apprtc.**  { *; }
-
-
-
--keep class de.tavendo.autobahn.**  { *; }
-
-
-
--keepclasseswithmembernames class * { native <methods>; }
+# noinspection ShrinkerUnresolvedReference
+-keep class org.webrtc.** { *; }

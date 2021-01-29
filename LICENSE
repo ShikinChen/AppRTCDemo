@@ -1,12 +1,5 @@
-# YaaRTC
+BSD 3-Clause License
 
-Yet another AppRTC demo which split from [origin WebRTC repo](https://webrtc.googlesource.com/src/+/refs/heads/master/docs/native-code/android/index.md) 😱
-
-This project is forked from [njovy/AppRTCDemo](https://github.com/njovy/AppRTCDemo), thanks he's work so that we can focus our attention on some experimental tests 🍻
-
-## License
-
-```
 Copyright (c) 2021, Matthew Lee
 Copyright (c) 2015 - 2021, Taehyun Park
 Copyright (c) 2011 - 2021, The WebRTC project authors.
@@ -36,4 +29,3 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-```
