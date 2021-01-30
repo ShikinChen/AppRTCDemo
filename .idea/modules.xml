@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AppRTCDemo.iml" filepath="$PROJECT_DIR$/.idea/AppRTCDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AppRTCDemo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AppRTCDemo.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/YaaRTC.iml" filepath="$PROJECT_DIR$/.idea/modules/YaaRTC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/YaaRTC.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/YaaRTC.app.iml" />
     </modules>
   </component>
 </project>
