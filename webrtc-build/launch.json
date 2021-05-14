@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0", 
+    "configurations": [
+        {
+            "postRunCommands": [
+                "settings set target.source-map ../../../ /Volumes/MacDisk/webrtc/AppRTCDemo/webrtc-build/webrtc_android/src"
+            ], 
+            "name": "debug_native", 
+            "request": "attach", 
+            "pid": "19726", 
+            "initCommands": [
+                "platform select remote-android", 
+                "platform connect unix-abstract-connect:///org.appspot.apprtc/debug.socket"
+            ], 
+            "type": "lldb"
+        }
+    ]
+}

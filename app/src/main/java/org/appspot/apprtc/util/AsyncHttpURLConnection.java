@@ -10,6 +10,8 @@
 
 package org.appspot.apprtc.util;
 
+import org.appspot.apprtc.BuildConfig;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -23,7 +25,7 @@ import java.util.Scanner;
  */
 public class AsyncHttpURLConnection {
   private static final int HTTP_TIMEOUT_MS = 8000;
-  private static final String HTTP_ORIGIN = "https://appr.tc";
+  private static final String HTTP_ORIGIN = "http://"+ BuildConfig.HOST_ADDRESS+":8080";
   private final String method;
   private final String url;
   private final String message;

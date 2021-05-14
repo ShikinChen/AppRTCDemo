@@ -1,14 +1,19 @@
+import com.sdk.versionplugin.*
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion BuildConfig.compileSdkVersion
 
     defaultConfig {
         applicationId 'org.appspot.apprtc'
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
         versionCode 1
         versionName '1.0.0'
+
+        buildConfigField("String", "HOST_ADDRESS", "\"$host_address\"")
+
+        resValue("string", "pref_room_server_url_default","http://${host_address}:8080")
     }
 
     buildTypes {

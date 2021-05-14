@@ -31,6 +31,7 @@
  */
 
 buildscript {
+    apply from: "versionPlugin/config.gradle"
     repositories {
         google()
         jcenter()
@@ -38,8 +39,12 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath deps.android_gradle_plugin
     }
+}
+
+plugins {
+    id "com.sdk.versionplugin"
 }
 
 allprojects {

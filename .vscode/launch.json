@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0", 
+    "configurations": [
+        {
+            "name": "Android launch", 
+            "request": "launch", 
+            "pmInstallArgs": [
+                "-t"
+            ], 
+            "appSrcRoot": "${workspaceRoot}/app/src/main", 
+            "adbPort": 5037, 
+            "apkFile": "${workspaceRoot}/app/build/outputs/apk/debug/app-debug.apk", 
+            "type": "android"
+        }, 
+        {
+            "processId": "${command:PickAndroidProcess}", 
+            "name": "Android attach", 
+            "request": "attach", 
+            "appSrcRoot": "${workspaceRoot}/app/src/main", 
+            "adbPort": 5037, 
+            "type": "android"
+        }, 
+        {
+            "postRunCommands": [
+                "settings set target.source-map ../../../ /Volumes/MacDisk/webrtc/AppRTCDemo/webrtc-build/webrtc_android/src"
+            ], 
+            "name": "debug_native", 
+            "request": "attach", 
+            "pid": "15808", 
+            "initCommands": [
+                "platform select remote-android", 
+                "platform connect unix-abstract-connect:///org.appspot.apprtc/debug.socket"
+            ], 
+            "type": "lldb"
+        }
+    ]
+}

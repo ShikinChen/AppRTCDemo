@@ -66,3 +66,23 @@ fastlane/readme.md
 
 # Others
 *.DS_Store
+
+webrtc-build/webrtc_android
+
+webrtc-build/cmake-build-debug
+
+webrtc-build/CMakeFiles
+
+webrtc-build/lib
+
+webrtc-build/bin
+
+webrtc-build/CMakeCache.txt
+
+webrtc-build/cmake_install.cmake
+
+webrtc-build/Makefile
+
+webrtc-build/webrtc_debug.cbp
+
+.cxx
