@@ -9,6 +9,10 @@ package com.sdk.versionplugin
 object BuildConfig {
     val compileSdkVersion = 30
     val buildToolsVersion = "30.0.0"
-    val minSdkVersion = 21
+    val minSdkVersion = 16
     val targetSdkVersion = compileSdkVersion
+}
+
+object AndroidSupport {
+    val androidSupportSdkVersion = "28.0.0"
 }

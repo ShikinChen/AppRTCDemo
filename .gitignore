@@ -86,3 +86,9 @@ webrtc-build/Makefile
 webrtc-build/webrtc_debug.cbp
 
 .cxx
+
+libwebrtc.aar
+
+*.so
+
+.cipd

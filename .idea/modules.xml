@@ -4,8 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AppRTCDemo.iml" filepath="$PROJECT_DIR$/.idea/modules/AppRTCDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AppRTCDemo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AppRTCDemo.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/YaaRTC.iml" filepath="$PROJECT_DIR$/.idea/modules/YaaRTC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/YaaRTC.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/YaaRTC.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/webrtc/AppRTCDemo.webrtc.iml" filepath="$PROJECT_DIR$/.idea/modules/webrtc/AppRTCDemo.webrtc.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/versionPlugin/versionPlugin.iml" filepath="$PROJECT_DIR$/.idea/modules/versionPlugin/versionPlugin.iml" />
     </modules>
   </component>

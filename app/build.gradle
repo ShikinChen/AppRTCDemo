@@ -1,4 +1,5 @@
 import com.sdk.versionplugin.*
+
 apply plugin: 'com.android.application'
 
 android {
@@ -13,7 +14,7 @@ android {
 
         buildConfigField("String", "HOST_ADDRESS", "\"$host_address\"")
 
-        resValue("string", "pref_room_server_url_default","http://${host_address}:8080")
+        resValue("string", "pref_room_server_url_default", "http://${host_address}:8080")
     }
 
     buildTypes {
@@ -41,5 +42,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'])
-    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation "com.android.support:support-annotations:${AndroidSupport.androidSupportSdkVersion}"
+    implementation project(":webrtc")
 }

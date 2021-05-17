@@ -4,7 +4,7 @@
 ### 编译和服务器搭建都是基于[docker](https://www.docker.com/)  
 <br>
 
-### 编译在webrtc-build目录用终端执行
+### 编译在webrtc目录用终端执行
 构建镜像
 ```
 ./build_image.sh
@@ -37,7 +37,7 @@ cd /webrtc
 ```
 
 ### 编译
-脚本已经unstrip直接执行打包,会提示ERROR:root:Missing licenses的协议生成错误这个可以不用处理只要生成libwebrtc.aar就行,最后libwebrtc.aar在<mark>webrtc-build/webrtc_android/src/out/</mark>  
+脚本已经unstrip直接执行打包,会提示ERROR:root:Missing licenses的协议生成错误这个可以不用处理只要生成libjingle_peerconnection_so.so就行,最后libjingle_peerconnection_so.so在<mark>webrtc-build/webrtc_android/src/out/arm64-v8a</mark>  
 ```
 cd /webrtc
 ./build_android.sh
@@ -46,7 +46,7 @@ cd /webrtc
 
 
 ### 调试  
-先参考[WebRTC 学习指南](https://webrtc.mthli.com/basic/webrtc-breakpoint/)替换aar和获取so相对c++源码的链接地址,也可以直接用Android studio进行调试,但是c++因为没办法导入生成索引没法进行代码跳转,所以改用[vscode](https://code.visualstudio.com/)调试思路是按照[Flutter Engine C++ 源码调试初探_7. VSCode中使用LLDB调试](https://fucknmb.com/2019/12/06/Flutter-Engine-C-%E6%BA%90%E7%A0%81%E8%B0%83%E8%AF%95%E5%88%9D%E6%8E%A2/)和[他的flutter_lldb脚本](https://github.com/lizhangqu/flutter_lldb.git)进行改造实现的  
+先将libjingle_peerconnection_so.so复制到webrtc/prebuilt_libs/arm64-v8a(如果目录不存在自行创建),然后参考[WebRTC 学习指南](https://webrtc.mthli.com/basic/webrtc-breakpoint/)获取so相对c++源码的链接地址,也可以直接用Android studio进行调试,但是c++因为没办法导入生成索引没法进行代码跳转,所以java层用Android studio调试,而c++改用[vscode](https://code.visualstudio.com/)调试思路是按照[Flutter Engine C++ 源码调试初探_7. VSCode中使用LLDB调试](https://fucknmb.com/2019/12/06/Flutter-Engine-C-%E6%BA%90%E7%A0%81%E8%B0%83%E8%AF%95%E5%88%9D%E6%8E%A2/)和[他的flutter_lldb脚本](https://github.com/lizhangqu/flutter_lldb.git)进行改造实现的  
 <br>
 需要安装以下插件  
 [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)  

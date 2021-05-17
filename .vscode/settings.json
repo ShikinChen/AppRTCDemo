@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.idl": "cpp",
+        "memory": "cpp",
+        "string": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp"
+    }
+}
