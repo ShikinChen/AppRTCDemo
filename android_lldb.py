@@ -40,10 +40,12 @@ def _get_adb_path(args):
     """get the adb path."""
     return os.path.join(_get_android_home(args), "platform-tools", "adb")
 
+abi="arm64-v8a"
+
 def main():
     parser = argparse.ArgumentParser(description='lldb debugger tool')
-    parser.add_argument('--abi', type=str, choices=['armeabi', 'arm64-v8a', 'x86', 'x86_64'],
-                        help="lldb-server使用的abi", default="arm64-v8a")
+    # parser.add_argument('--abi', type=str, choices=['armeabi', 'arm64-v8a', 'x86', 'x86_64'],
+    #                     help="lldb-server使用的abi", default="arm64-v8a")
     parser.add_argument('--android-sdk', type=str, help="android sdk路径默认用环境变量ANDROID_HOME")
     parser.add_argument('--local-src-path', type=str, required=True,
                         help="c++源码路径")
@@ -59,6 +61,7 @@ def run(args):
     adb_path = _get_adb_path(args)
     # 根据app包路径获取app线程id
     application_pid = _find_package_pid(adb_path, args.package)
+    abi=subprocess.check_output([adb_path, 'shell', 'getprop','ro.product.cpu.abi']).rstrip()
     pid = application_pid or (
             'get pid by execute `adb shell pidof %s` yourself' % args.package)
 
@@ -127,7 +130,7 @@ def run(args):
         [adb_path, 'push', "%s/start_lldb_server.sh" % lldb_server_local_dir_path, tmp_dir_path])
 
     subprocess.check_call(
-        [adb_path, 'push', "%s/%s/lldb-server" % (lldb_server_local_dir_path, args.abi), tmp_dir_path])
+        [adb_path, 'push', "%s/%s/lldb-server" % (lldb_server_local_dir_path, abi), tmp_dir_path])
 
     # 将/data/local/tmp/lldb-server 复制到相应应用的目录
     lldb_server_dir_path = '/data/data/%s/lldb' % args.package

@@ -26,7 +26,7 @@
             ], 
             "name": "debug_native", 
             "request": "attach", 
-            "pid": "18579", 
+            "pid": "4590", 
             "initCommands": [
                 "platform select remote-android", 
                 "platform connect unix-abstract-connect:///org.appspot.apprtc/debug.socket"
