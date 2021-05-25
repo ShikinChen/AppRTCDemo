@@ -41,8 +41,27 @@ android {
     }
 }
 
+tasks.whenTaskAdded {
+    theTask ->
+        if (theTask.name == 'assembleDebug') {
+            theTask.doLast {
+                println "start_lldb"
+                try {
+                    exec {
+                        commandLine 'bash', '-c',  "../start_lldb.sh"
+                    }
+                }
+                catch(Exception e){
+                    println("Exception: $e")
+                }
+            }
+        }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'])
     implementation "com.android.support:support-annotations:${AndroidSupport.androidSupportSdkVersion}"
     implementation project(":webrtc")
 }
+
+

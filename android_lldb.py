@@ -97,7 +97,7 @@ def run(args):
                     "platform connect unix-abstract-connect:///%s/debug.socket"
                 ],
                 "postRunCommands": [
-                    "settings set target.source-map %s %s"
+                    "settings set target.source-map '%s' '%s'"
                 ]
             }
         """ % (lldb_config_name,

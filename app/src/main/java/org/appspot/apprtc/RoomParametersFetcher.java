@@ -80,6 +80,10 @@ public class RoomParametersFetcher {
     httpConnection.send();
   }
 
+  /**
+   * MARK 处理请求房间地址信息
+   * @param response
+   */
   private void roomHttpResponseParse(String response) {
     Log.d(TAG, "Room response: " + response);
     try {
@@ -128,6 +132,7 @@ public class RoomParametersFetcher {
       List<PeerConnection.IceServer> iceServers =
           iceServersFromPCConfigJSON(roomJson.getString("pc_config"));
       boolean isTurnPresent = false;
+      //MARK 判断iceServers是否含有TURN服务器地址
       for (PeerConnection.IceServer server : iceServers) {
         Log.d(TAG, "IceServer: " + server);
         for (String uri : server.urls) {
@@ -137,7 +142,7 @@ public class RoomParametersFetcher {
           }
         }
       }
-      // Request TURN servers.
+      //MARK Request TURN servers. 将Turn服务器添加到iceServers列表
       if (!isTurnPresent && !roomJson.optString("ice_server_url").isEmpty()) {
         List<PeerConnection.IceServer> turnServers =
             requestTurnServers(roomJson.getString("ice_server_url"));

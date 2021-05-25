@@ -77,6 +77,7 @@ public interface AppRTCClient {
    */
   class SignalingParameters {
     public final List<PeerConnection.IceServer> iceServers;
+    //MARK 是否发起者
     public final boolean initiator;
     public final String clientId;
     public final String wssUrl;

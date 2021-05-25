@@ -47,18 +47,23 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelEvents 
 
   private final Handler handler;
   private boolean initiator;
+  //MARK 对应demo的CallActivity
   private SignalingEvents events;
   private WebSocketChannelClient wsClient;
   private ConnectionState roomState;
   private RoomConnectionParameters connectionParameters;
+  //MARK 发送Signal Server服务器普通信息地址
   private String messageUrl;
+  //MARK 发送Signal Server服务器退出信息地址
   private String leaveUrl;
 
   public WebSocketRTCClient(SignalingEvents events) {
     this.events = events;
     roomState = ConnectionState.NEW;
+    //MARK 创建本地的handler线程
     final HandlerThread handlerThread = new HandlerThread(TAG);
     handlerThread.start();
+    //MARK 创建本地的handler 接收和发送信息
     handler = new Handler(handlerThread.getLooper());
   }
 
@@ -88,11 +93,15 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelEvents 
     });
   }
 
+  /**
+   * MARK 连接房间在本地handler线程执行
+   */
   // Connects to room - function runs on a local looper thread.
   private void connectToRoomInternal() {
     String connectionUrl = getConnectionUrl(connectionParameters);
     Log.d(TAG, "Connect to room: " + connectionUrl);
     roomState = ConnectionState.NEW;
+    //MARK 创建WebSocket客户端 传入handler 统一本地handler线程管理接收和发送信息
     wsClient = new WebSocketChannelClient(handler, this);
 
     RoomParametersFetcherEvents callbacks = new RoomParametersFetcherEvents() {
@@ -101,6 +110,7 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelEvents 
         WebSocketRTCClient.this.handler.post(new Runnable() {
           @Override
           public void run() {
+            //MARK 请求房间地址回调获取相关房间信息和服务器信息
             WebSocketRTCClient.this.signalingParametersReady(params);
           }
         });
@@ -111,7 +121,7 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelEvents 
         WebSocketRTCClient.this.reportError(description);
       }
     };
-
+    //MARK 异步请求房间地址
     new RoomParametersFetcher(connectionUrl, null, callbacks).makeRequest();
   }
 
@@ -158,11 +168,13 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelEvents 
   // looper thread.
   private void signalingParametersReady(final SignalingParameters signalingParameters) {
     Log.d(TAG, "Room connection completed.");
+    //MARK 如果是自推自收 同时是发起者不需要offer sdp
     if (connectionParameters.loopback
         && (!signalingParameters.initiator || signalingParameters.offerSdp != null)) {
       reportError("Loopback room is busy.");
       return;
     }
+    //MARK 如果不是自推自收 同时不是发起者则是应答者要具有offer sdp
     if (!connectionParameters.loopback && !signalingParameters.initiator
         && signalingParameters.offerSdp == null) {
       Log.w(TAG, "No offer SDP in room response.");
@@ -174,7 +186,7 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelEvents 
     Log.d(TAG, "Leave URL: " + leaveUrl);
     roomState = ConnectionState.CONNECTED;
 
-    // Fire connection and signaling parameters events.
+    //MARK Fire connection and signaling parameters events. demo的CallActivity的onConnectedToRoom方法
     events.onConnectedToRoom(signalingParameters);
 
     // Connect and register WebSocket client.
@@ -183,6 +195,11 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelEvents 
   }
 
   // Send local offer SDP to the other participant.
+
+  /**
+   * MARK 发送本地 offer sdp
+   * @param sdp
+   */
   @Override
   public void sendOfferSdp(final SessionDescription sdp) {
     handler.post(new Runnable() {

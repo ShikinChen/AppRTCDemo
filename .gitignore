@@ -92,3 +92,7 @@ libwebrtc.aar
 *.so
 
 .cipd
+
+python.log
+
+.boto
