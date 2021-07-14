@@ -21,3 +21,5 @@ WORKDIR /
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
 RUN echo 'export PATH=$PATH:/depot_tools' >> /root/.bashrc
+
+WORKDIR /webrtc

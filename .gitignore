@@ -96,3 +96,23 @@ libwebrtc.aar
 python.log
 
 .boto
+
+CMakeFiles
+
+cmake-build-*
+
+CMakeCache.txt
+
+third_party
+
+bin
+
+webrtc_debug.cbp
+
+lib
+
+Makefile
+
+cmake_install.cmake
+
+Testing

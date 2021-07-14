@@ -2,5 +2,12 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webrtc/webrtc_cmake/CMakeFiles/_imported/https-chromium.googlesource.com-libyuv-libyuv" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webrtc/webrtc_cmake/CMakeFiles/_imported/https-chromium.googlesource.com-webm-libvpx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webrtc/webrtc_cmake/CMakeFiles/_imported/https-github.com-abseil-abseil-cpp.git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webrtc/webrtc_cmake/CMakeFiles/_imported/https-github.com-cisco-libsrtp.git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webrtc/webrtc_cmake/CMakeFiles/_imported/https-github.com-open-source-parsers-jsoncpp.git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webrtc/webrtc_cmake/CMakeFiles/_imported/https-github.com-sctplab-usrsctp.git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/webrtc/webrtc_cmake/CMakeFiles/_imported/https-github.com-xiph-opus.git" vcs="Git" />
   </component>
 </project>
