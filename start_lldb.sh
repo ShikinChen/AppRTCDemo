@@ -7,8 +7,14 @@ if [[ -n $pid ]]; then
     kill -9 $pid
 fi
 
+MIRROR=$1
+
+if [ ! -n "$MIRROR" ]; then
+    MIRROR=agoralab
+fi
+
 nohup python "$SHELL_PATH/android_lldb.py" --remote-src-path=../../../ \
---local-src-path="$SHELL_PATH/webrtc/webrtc_android/src" \
+--local-src-path="$SHELL_PATH/webrtc/webrtc_android/src/${MIRROR}" \
 --launch-path="$SHELL_PATH/.vscode/launch.json" \
 org.appspot.apprtc > "$SHELL_PATH/python.log" 2>&1 &
 

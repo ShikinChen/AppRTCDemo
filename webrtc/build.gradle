@@ -1,7 +1,8 @@
 import com.sdk.versionplugin.*
 
 apply plugin: 'com.android.library'
-
+def webrtc_path="$rootProject.rootDir/webrtc/webrtc_src/google"
+def webrtc_src="$webrtc_path/src"
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
 
@@ -12,14 +13,15 @@ android {
         versionName '1.0.0'
 
         sourceSets.main.java.srcDirs = [
-                "$rootProject.rootDir/webrtc/webrtc_android/src/sdk/android/api",
-                "$rootProject.rootDir/webrtc/webrtc_android/src/sdk/android/src/java",
-                "$rootProject.rootDir/webrtc/webrtc_android/src/rtc_base/java/src",
-                "$rootProject.rootDir/webrtc/webrtc_android/src/modules/audio_device/android/java/src",
+                "$webrtc_src/sdk/android/api",
+                "$webrtc_src/sdk/android/src/java",
+                "$webrtc_src/rtc_base/java/src",
+                "$webrtc_src/modules/audio_device/android/java/src",
                 "$rootProject.rootDir/webrtc/src/main/java",
+                "$webrtc_path/out/android/peerconnection_java/generated_java/input_srcjars",
         ]
 
-        sourceSets.main.jniLibs.srcDirs = ['prebuilt_libs']
+        sourceSets.main.jniLibs.srcDirs = ["$webrtc_path/out/android/so"]
         ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
     }
     buildTypes {
@@ -50,4 +52,5 @@ android {
 dependencies {
     api 'com.google.code.findbugs:jsr305:3.0.2'
     api "com.android.support:support-annotations:${AndroidSupport.androidSupportSdkVersion}"
+    api "androidx.annotation:annotation:1.1.0"
 }
