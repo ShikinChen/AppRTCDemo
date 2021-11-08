@@ -60,7 +60,6 @@ tasks.whenTaskAdded {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'])
-    implementation "com.android.support:support-annotations:${AndroidSupport.androidSupportSdkVersion}"
     implementation project(":webrtc")
 }
 
