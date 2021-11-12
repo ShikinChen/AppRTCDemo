@@ -25,6 +25,9 @@ RUN apt-get install -y cmake lbzip2 libavcodec-dev
 RUN apt-get install -y libavdevice-dev libavfilter-dev libavformat-dev 
 RUN apt-get install -y libswresample-dev libpostproc-dev
 
+RUN pip3 install dataclasses
+RUN pip install dataclasses
+
 # install webrtc deps
 RUN curl https://chromium.googlesource.com/chromium/src/+/master/build/install-build-deps-android.sh?format=TEXT | base64 -d > install-build-deps-android.sh
 RUN curl https://chromium.googlesource.com/chromium/src/+/master/build/install-build-deps.sh?format=TEXT | base64 -d > install-build-deps.sh

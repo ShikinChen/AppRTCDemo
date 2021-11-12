@@ -1,8 +1,10 @@
 import com.sdk.versionplugin.*
 
 apply plugin: 'com.android.library'
+def abi="arm64-v8a"
 def webrtc_path="$rootProject.rootDir/webrtc/webrtc_src/google"
 def webrtc_src="$webrtc_path/src"
+def webrtc_out = "$webrtc_src/out/android_debug/$abi"
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
 
@@ -18,7 +20,8 @@ android {
                 "$webrtc_src/rtc_base/java/src",
                 "$webrtc_src/modules/audio_device/android/java/src",
                 "$rootProject.rootDir/webrtc/src/main/java",
-                "$webrtc_path/out/android/peerconnection_java/generated_java/input_srcjars",
+                "$webrtc_out/gen/sdk/android/peerconnection_java/generated_java/input_srcjars",
+                "$webrtc_out/gen/sdk/android/video_api_java/generated_java/input_srcjars",
         ]
 
         sourceSets.main.jniLibs.srcDirs = ["$webrtc_path/out/android/so"]

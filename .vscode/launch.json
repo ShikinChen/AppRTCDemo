@@ -22,11 +22,11 @@
         }, 
         {
             "postRunCommands": [
-                "settings set target.source-map '../../../' '/Volumes/MacDisk/OneDrive/OneDrive - \u6cb3\u5357\u5de5\u4e1a\u804c\u4e1a\u6280\u672f\u5b66\u9662/webrtc/AppRTCDemo/webrtc/webrtc_android/src'"
+                "settings set target.source-map '../../../' '/Volumes/mac_disk_01/AppRTCDemo/webrtc/webrtc_src/agoralab/src'"
             ], 
             "name": "debug_native", 
             "request": "attach", 
-            "pid": "23444", 
+            "pid": "get pid by execute `adb shell pidof org.appspot.apprtc` yourself", 
             "initCommands": [
                 "platform select remote-android", 
                 "platform connect unix-abstract-connect:///org.appspot.apprtc/debug.socket"

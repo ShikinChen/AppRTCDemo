@@ -122,7 +122,7 @@ def run(args):
     if sys.platform == "darwin":
         contents_dir = "Contents"
     # 从Android Studio获取lldb-server和启动脚本复制到/data/local/tmp
-    lldb_server_local_dir_path = "%s/%s/bin/lldb/android" % (args.as_path, contents_dir)
+    lldb_server_local_dir_path = "%s/%s/plugins/android-ndk/resources/lldb/android" % (args.as_path, contents_dir)
 
     tmp_dir_path = "/data/local/tmp"
 

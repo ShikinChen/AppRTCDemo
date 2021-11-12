@@ -14,7 +14,7 @@ if [ ! -n "$MIRROR" ]; then
 fi
 
 nohup python "$SHELL_PATH/android_lldb.py" --remote-src-path=../../../ \
---local-src-path="$SHELL_PATH/webrtc/webrtc_android/src/${MIRROR}" \
+--local-src-path="$SHELL_PATH/webrtc/webrtc_src/${MIRROR}/src" \
 --launch-path="$SHELL_PATH/.vscode/launch.json" \
 org.appspot.apprtc > "$SHELL_PATH/python.log" 2>&1 &
 

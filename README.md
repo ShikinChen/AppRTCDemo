@@ -28,6 +28,8 @@ cd ./webrtc_src/agoralab/src #如果使用声网源目录就是agoralab,如果Go
 git checkout be99ee8f17f93e06c81e3deb4897dfa8253d3211 -b commit_30432
 //或者切换m84
 git checkout branch-heads/4147 -b m84
+//或者切换m84
+git checkout branch-heads/4638 -b m95
 cd ../../..
 ./webrtc_gclient_sync.sh
 ```
@@ -57,8 +59,6 @@ cd /webrtc
 <br> 
 
 
-### 调试  
-
 ### Android调试
 先将libjingle_peerconnection_so.so复制到webrtc/prebuilt_libs/arm64-v8a(如果目录不存在自行创建),然后参考[WebRTC 学习指南](https://webrtc.mthli.com/basic/webrtc-breakpoint/)获取so相对c++源码的链接地址,也可以直接用Android studio进行调试,但是c++因为没办法导入生成索引没法进行代码跳转,所以java层用Android studio调试,而c++改用[vscode](https://code.visualstudio.com/)调试思路是按照[Flutter Engine C++ 源码调试初探_7. VSCode中使用LLDB调试](https://fucknmb.com/2019/12/06/Flutter-Engine-C-%E6%BA%90%E7%A0%81%E8%B0%83%E8%AF%95%E5%88%9D%E6%8E%A2/)和[他的flutter_lldb脚本](https://github.com/lizhangqu/flutter_lldb.git)进行改造实现的  
 <br>
@@ -78,8 +78,14 @@ start_lldb.sh有下载源参数,默认值分别是agoralab,如果用Google源下
 <br>   
 <br>  
 
+### Android c++使用CLion调试
+1. 安装
+```shell
+brew install ninja cmake
+```
 
-### mac调试
+
+### mac编译运行
 1. 复制 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist到别的目录
 用xcode进行修改MinimumSDKVersion为10.12,
 然后复制回/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform覆盖原来,
